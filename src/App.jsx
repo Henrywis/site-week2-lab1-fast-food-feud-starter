@@ -1,6 +1,9 @@
 // IMPORT ANY NEEDED COMPONENTS HERE
 import { Dataset } from "./data/dataset"
 import "./App.css"
+import Header from "./components/Header/Header"
+import Instructions from "./components/Instructions/Instructions"
+import Chip from "./components/Chip/Chip"
 
 // don't move this!
 export const appInfo = {
@@ -28,20 +31,40 @@ export function App() {
         <div className="categories options">
           <h2 className="title">Categories</h2>
           {/* YOUR CODE HERE */}
+          {/* <p>Salads</p> */}
+         
+
+          {
+            categories.map( (category) => (
+              <Chip key={category} label={category} isActive={false}/>
+            ))
+          }
         </div>
       </div>
 
       {/* MAIN COLUMN */}
       <div className="container">
         {/* HEADER GOES HERE */}
+        <Header title={appInfo.title} tagline={appInfo.tagline} description={appInfo.description}/>
 
         {/* RESTAURANTS ROW */}
         <div className="RestaurantsRow">
           <h2 className="title">Restaurants</h2>
-          <div className="restaurants options">{/* YOUR CODE HERE */}</div>
+          <div className="restaurants options">
+            {/* YOUR CODE HERE */}
+            {/* <p>Restaurants</p> */}
+
+            {
+              restaurants.map( (restaurant) => (
+                // <Chip />
+                <Chip key={restaurant} label={restaurant} isActive={false}/>
+              ))
+            }
+            </div>
         </div>
 
         {/* INSTRUCTIONS GO HERE */}
+        <Instructions start={appInfo.instructions.start}/>
 
         {/* MENU DISPLAY */}
         <div className="MenuDisplay display">
